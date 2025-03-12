@@ -14,22 +14,6 @@ This repository contains three mini-projects built using **React.js**:
 ✔ Delete tasks
 ✔ Saves tasks in local storage
 
-### Installation & Usage:
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/react-mini-projects.git
-   cd react-mini-projects
-   ```
-2. Install dependencies:
-   ```sh
-   npm install
-   ```
-3. Run the project:
-   ```sh
-   npm start
-   ```
-4. Navigate to the **To-Do List** section in the app.
-
 ---
 
 ## 2️⃣ Counter App
@@ -37,9 +21,6 @@ This repository contains three mini-projects built using **React.js**:
 ✔ Increment & decrement count
 ✔ Reset button
 ✔ Responsive UI
-
-### Installation & Usage:
-Follow the same installation steps above and open the **Counter** section in the app.
 
 ---
 

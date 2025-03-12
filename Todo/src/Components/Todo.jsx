@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
@@ -23,8 +24,8 @@ const TodoApp = () => {
   };
 
   // Handle input change
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
   };
 
   // Handle form submission
@@ -34,43 +35,32 @@ const TodoApp = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">Todo List</h1>
-
+    <div className="container">
       {/* Todo Input Form */}
-      <form onSubmit={handleSubmit} className="w-full mb-6 flex">
+      <form onSubmit={handleSubmit} className="w-full mb-6 flex gap-2">
         <input
           type="text"
           value={inputValue}
           onChange={handleInputChange}
           placeholder="Add a new task..."
-          className="flex-grow p-3 border border-gray-300 rounded-l-lg "
         />
-        <button
-          type="submit"
-          className="bg-blue-500 hover:bg-blue-600 text-white px-4 rounded-r-lg transition-colors duration-200"
-        >
-          Add
-        </button>
+        <button type="submit">Add</button>
       </form>
 
       {/* Todo List */}
-      <div className="w-full">
+      <div>
         {todos.length === 0 ? (
           <p className="text-center text-gray-500 py-4">
             No tasks yet. Add one above!
           </p>
         ) : (
-          <ul className="space-y-2">
+          <ul className="todo-list">
             {todos.map((todo) => (
-              <li
-                key={todo.id}
-                className="flex items-center justify-between p-3 bg-gray-50 rounded-lg border border-gray-200"
-              >
-                <span className="break-all pr-2">{todo.text}</span>
+              <li key={todo.id} className="todo">
+                <span>{todo.text}</span>
                 <button
                   onClick={() => handleDeleteTodo(todo.id)}
-                  className="ml-2 p-1 bg-red-500 hover:bg-red-600 text-white rounded-md transition-colors duration-200"
+                  className="delete-btn"
                 >
                   Delete
                 </button>

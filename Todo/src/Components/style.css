@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+
+body {
+  background: #c7c9c1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  color: #333333;
+  text-align: center;
+}
+
+.container {
+  background: #fcfff3;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  height: 550px;
+  overflow-y: scroll;
+}
+
+input {
+  padding: 15px;
+  border: none;
+  outline: none;
+  background: #f5f9eb;
+  width: 300px;
+  margin-right: 10px;
+  border-radius: 4px;
+}
+
+button {
+  border-radius: 100px;
+  background: #555555;
+  padding: 5px;
+  outline: none;
+  border: none;
+  color: #fff;
+  padding: 12px 25px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #666666;
+}
+
+.todos-list {
+  margin-top: 3rem;
+}
+
+.todo {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333333;
+  padding: 7px 20px;
+  margin: 10px;
+  font-family: sans-serif;
+  color: #e0e0e0;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  padding: 10px 10px;
+  cursor: pointer;
+  background: #f5f9eb;
+  border-radius: 4px;
+}
+
+.delete-btn {
+  background: #555555;
+}
