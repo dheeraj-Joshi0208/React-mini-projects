@@ -27,27 +27,27 @@ p {
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   height: 550px;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 input {
   padding: 15px;
   border: none;
   outline: none;
-  background: #f5f9eb;
+  border: 1px solid rgba(32, 32, 32, 0.241);
   width: 300px;
   margin-right: 10px;
   border-radius: 4px;
 }
 
 button {
-  border-radius: 100px;
+  border-radius: 4px;
   background: #555555;
-  padding: 5px;
+  padding: 15px;
   outline: none;
   border: none;
   color: #fff;
-  padding: 12px 25px;
+  padding: 15px 30px;
   cursor: pointer;
 }
 
