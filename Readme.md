@@ -1,13 +1,11 @@
 # React Mini Project
 
-This Learning project includes multiple React-based features such as a **Counter App**, **To-Do List**, **Calculator**, and **API Fetching with Axios**.
-
 ## Features
-1. **Counter App** – A simple counter with increment and decrement functionality.
-2. **To-Do List** – Add, delete, and manage tasks dynamically.
-3. **Calculator** – A basic calculator with arithmetic operations.
-4. **API Fetching with Axios** – Fetch and display data using Axios.
-
+1. **Calculator** – A basic calculator with arithmetic operations.
+2. **Counter App** – A simple counter with increment and decrement functionality.
+3. **API Fetching with Axios** – Fetch and display data using Axios.
+4. **To-Do List** – Add, delete, and manage tasks dynamically.
+5. **Dark Mode** - Toggle dark mode.
 ---
 
 ## Technologies Used
