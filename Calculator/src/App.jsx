@@ -1,9 +1,18 @@
 import Calculator from "./Components/Calculator";
 
 function App() {
+
+  const flexCenter = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    width: "100vw"
+  }
+
   return (
     <>
-      <div className="flex h-screen justify-center items-center">
+      <div style={flexCenter}>
         <Calculator />
       </div>
     </>
