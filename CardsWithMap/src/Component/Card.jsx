@@ -1,4 +1,4 @@
-import cardData from "./cardData";
+import cardData from "../Data/cardData";
 const Card = ({ title, description, imageUrl }) => {
   return (
     <div className="card">

@@ -34,10 +34,24 @@ const TodoApp = () => {
     handleAddTodo();
   };
 
+  // Date and Time
+  const now = new Date();
+  const date = now.toLocaleDateString("en-GB", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+  const time = now.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
   return (
     <div className="container">
-      {/* Todo Input Form */}
-      <form onSubmit={handleSubmit} className="w-full mb-6 flex gap-2">
+      <h4 className="date-time">
+        {date} - {time}
+      </h4>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={inputValue}
@@ -50,9 +64,7 @@ const TodoApp = () => {
       {/* Todo List */}
       <div>
         {todos.length === 0 ? (
-          <p className="text-center text-gray-500 py-4">
-            No tasks yet. Add one above!
-          </p>
+          <p className="">No tasks yet. Add one above!</p>
         ) : (
           <ul className="todo-list">
             {todos.map((todo) => (
