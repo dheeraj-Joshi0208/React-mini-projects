@@ -8,11 +8,8 @@
 5. **To-Do List** – Add, delete, and manage tasks dynamically.
 6. **Dark Mode** - Toggle dark mode.
 7. **Testimonials**
----
 
 ## Technologies Used
 ✅ React.js
 ✅ Axios (for API fetching)
 ✅ CSS (for styling)
-
----
