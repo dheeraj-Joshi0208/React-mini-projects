@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 
 const TodoApp = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const [dateTime, setDateTime] = useState("");
 
   // Add new todo
   const handleAddTodo = () => {
@@ -35,22 +36,30 @@ const TodoApp = () => {
   };
 
   // Date and Time
-  const now = new Date();
-  const date = now.toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
-  const time = now.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = new Date();
+      const date = now.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      });
+      const time = now.toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      });
+      setDateTime(`${date} - ${time}`);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="container">
-      <h4 className="date-time">
-        {date} - {time}
-      </h4>
+      <h4 className="date-time">{dateTime}</h4>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
