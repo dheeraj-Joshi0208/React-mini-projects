@@ -1,10 +1,10 @@
-import Todo from "./Component/Todo";
+import TodoApp from "./Component/Todo";
 
 function App() {
   return (
     <>
       <div className="flex h-screen justify-center items-center">
-        <Todo />
+        <TodoApp />
       </div>
     </>
   );
