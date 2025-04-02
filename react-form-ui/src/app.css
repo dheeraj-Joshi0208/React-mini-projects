@@ -44,6 +44,12 @@ p {
   padding-bottom: 0.5rem;
 }
 
+:placeholder-shown {
+  color: var(--text-color);
+  opacity: 0.6;
+  font-size: 0.8rem;
+}
+
 ul,
 ol {
   list-style: none;
@@ -51,6 +57,8 @@ ol {
 
 .form-container {
   display: flex;
+  flex-direction: column;
+  gap: 42px;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -118,7 +126,7 @@ input {
   color: var(--text-color);
 }
 
-.mannual-btn {
+.manual-btn {
   margin-top: 10px;
   padding: 10px 0;
   width: 100%;
@@ -129,7 +137,7 @@ input {
   color: var(--text-color);
 }
 
-.mannual-btn:hover {
+.manual-btn:hover {
   background-color: var(--secondary-bg);
   transition: background 0.3s ease-in-out;
   color: var(--button-text-color);

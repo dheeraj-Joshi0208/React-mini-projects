@@ -1,37 +1,78 @@
-import React from "react";
+import React, { useState } from "react";
 import "./app.css";
 
 const Form = () => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(user);
+    setUser({
+      name: "",
+      email: "",
+      password: "",
+    });
+  };
+
   return (
     <div className="form-container">
-      <form className="form">
+      <form className="form" onSubmit={handleSubmit}>
         <h1>Create an account</h1>
         <p>Enter your email below to create your account</p>
         <div className="social">
-          <button>
-            <i class="ri-github-fill"></i>GitHub
+          <button type="button">
+            <i className="ri-github-fill"></i>GitHub
           </button>
-          <button>
-            <i class="ri-google-fill"></i>Google
+          <button type="button">
+            <i className="ri-google-fill"></i>Google
           </button>
         </div>
         <div className="partition">
           <h6>Or continue with</h6>
         </div>
-        <div className="mannual">
-          <label className="">
+        <div className="manual">
+          <label>
             Name
-            <input type="text" name="name" />
+            <input
+              type="text"
+              name="name"
+              value={user.name}
+              placeholder="Enter your name"
+              onChange={handleChange}
+              required
+            />
           </label>
-          <label className="">
+          <label>
             Email
-            <input type="email" name="email" />
+            <input
+              type="email"
+              name="email"
+              value={user.email}
+              placeholder="Enter your email"
+              onChange={handleChange}
+              required
+            />
           </label>
-          <label className="">
-            Passward
-            <input type="tel" name="phone" />
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              value={user.password}
+              placeholder="Enter your password"
+              onChange={handleChange}
+              required
+            />
           </label>
-          <button className="mannual-btn" type="submit">
+          <button className="manual-btn" type="submit">
             Submit
           </button>
         </div>
@@ -42,11 +83,9 @@ const Form = () => {
 
 function App() {
   return (
-    <>
-      <div>
-        <Form />
-      </div>
-    </>
+    <div>
+      <Form />
+    </div>
   );
 }
 
