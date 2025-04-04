@@ -2,31 +2,50 @@ import React, { useState } from "react";
 import "./app.css";
 
 const Form = () => {
-  const [user, setUser] = useState({
+  const initialState = {
     name: "",
     email: "",
     password: "",
-  });
+  };
+
+  const [user, setUser] = useState(initialState);
 
   const handleChange = (e) => {
-    setUser({ ...user, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(user);
-    setUser({
-      name: "",
-      email: "",
-      password: "",
-    });
+    setUser(initialState);
   };
 
+  const renderInput = (id, type, placeholder) => (
+    <div className="input-group">
+      <label htmlFor={id}>{id.charAt(0).toUpperCase() + id.slice(1)}</label>
+      <input
+        type={type}
+        id={id}
+        name={id}
+        value={user[id]}
+        placeholder={placeholder}
+        onChange={handleChange}
+        required
+      />
+    </div>
+  );
   return (
     <div className="form-container">
       <form className="form" onSubmit={handleSubmit}>
-        <h1>Create an account</h1>
-        <p>Enter your email below to create your account</p>
+        <div className="form-header">
+          <h1>Create an account</h1>
+          <p>Enter your email below to create your account</p>
+        </div>
+
         <div className="social">
           <button type="button">
             <i className="ri-github-fill"></i>GitHub
@@ -35,46 +54,21 @@ const Form = () => {
             <i className="ri-google-fill"></i>Google
           </button>
         </div>
+
         <div className="partition">
           <h6>Or continue with</h6>
         </div>
-        <div className="manual">
-          <label>
-            Name
-            <input
-              type="text"
-              name="name"
-              value={user.name}
-              placeholder="Enter your name"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Email
-            <input
-              type="email"
-              name="email"
-              value={user.email}
-              placeholder="Enter your email"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <label>
-            Password
-            <input
-              type="password"
-              name="password"
-              value={user.password}
-              placeholder="Enter your password"
-              onChange={handleChange}
-              required
-            />
-          </label>
-          <button className="manual-btn" type="submit">
-            Submit
-          </button>
+
+        {renderInput("name", "text", "Jhon Doe")}
+        {renderInput("email", "text", "jhondoe@gmail.com")}
+        {renderInput("passward", "passward", "")}
+
+        <button type="submit" className="manual-btn">
+          Create an account
+        </button>
+
+        <div className="form-footer">
+          <p></p>
         </div>
       </form>
     </div>
