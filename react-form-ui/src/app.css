@@ -1,4 +1,4 @@
-/* CSS Variables - SaaS Theme with New Color Scheme */
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 :root {
   /* Base colors */
   --primary-bg: #ffffff;
@@ -36,6 +36,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
