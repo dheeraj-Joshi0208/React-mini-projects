@@ -239,9 +239,12 @@ input:focus {
 
 /* Additional elements for SaaS look */
 .error {
-  gap: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
   font-size: 0.8125rem;
+  height: 3vh;
 }
 
 .error p {

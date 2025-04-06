@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./app.css";
+import "./form.css";
 
 const Form = () => {
   const initialState = {
@@ -25,7 +25,8 @@ const Form = () => {
     const { name, email, password, confirmPassword } = user;
     const validations = [
       {
-        condition: !name || !email || !password || !confirmPassword,
+        condition:
+          !name.trim() || !email.trim() || !password || !confirmPassword,
         message: "All fields are required",
       },
       {
@@ -37,22 +38,20 @@ const Form = () => {
         message: "Password must be at least 8 characters",
       },
       {
-        condition: !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-          email
-        ),
+        condition: password.includes(" "),
+        message: "Password cannot contain spaces",
+      },
+      {
+        condition: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
         message: "Invalid email address",
       },
       {
         condition:
-          !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+          !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/.test(
             password
           ),
         message:
-          "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character (@,$,!,%,*,?,&)",
-      },
-      {
-        condition: password.includes(" "),
-        message: "Password cannot contain spaces",
+          "Password must include uppercase, lowercase, number, and special character (@, $, !, %, *, ?, &)",
       },
     ];
 
@@ -75,7 +74,11 @@ const Form = () => {
       error: "",
     }));
 
-    setUser(initialState);
+    // setUser(initialState);
+
+    setTimeout(() => {
+      setSuccess(false);
+    }, 1000);
   };
 
   const renderInput = (id, type, placeholder) => (
@@ -116,7 +119,7 @@ const Form = () => {
           <h6>Or continue with</h6>
         </div>
         {renderInput("name", "text", "John Doe")}
-        {renderInput("email", "text", "johndoe@gmail.com")}
+        {renderInput("email", "email", "johndoe@gmail.com")}
         {renderInput("password", "password", "Enter password")}
         {renderInput("confirmPassword", "password", "Confirm password")}
         <div className="error">
